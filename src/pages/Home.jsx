@@ -30,9 +30,14 @@ const Home = () => {
 
   const fetch = async () => {
     if (user?._id) {
-      const response = await getAllEvents(user._id, debouncedSearch, filter, page);
+      const response = await getAllEvents(
+        user._id,
+        debouncedSearch,
+        filter,
+        page
+      );
       setEvents(response.data.data);
-      setTotalPages(Math.ceil(response.data.totalEvents / 6));  // Update total pages for pagination
+      setTotalPages(Math.ceil(response.data.totalEvents / 6)); // Update total pages for pagination
       console.log(response);
     }
   };
@@ -85,7 +90,7 @@ const Home = () => {
           <input
             value={search}
             onChange={(e) => {
-              setSearch(e.target.value); 
+              setSearch(e.target.value);
             }}
             type="text"
             className="bg-white text-gray-500 rounded-full py-3 px-6 w-full lg:w-3/4 mb-4 lg:mb-0 focus:outline-none focus:ring-2 focus:ring-blue-500"
@@ -104,7 +109,15 @@ const Home = () => {
             <FilterSection onFilterChange={onFilterChange} />
           </div>
           <div className="lg:w-3/4 p-4">
-            <EventListings events={events} />
+            {events.length === 0 ? (
+              <div className="text-center py-8">
+                <p className="text-xl text-gray-600">
+                  No events found. Please add some events.
+                </p>
+              </div>
+            ) : (
+              <EventListings events={events} />
+            )}
           </div>
         </div>
       ) : (
@@ -146,7 +159,7 @@ const Home = () => {
 
               <PaginationItem>
                 <PaginationNext
-                disabled={page === totalPages}
+                  disabled={page === totalPages}
                   onClick={() => handlePageChange(page + 1)}
                 />
               </PaginationItem>
