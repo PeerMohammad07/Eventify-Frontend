@@ -28,11 +28,12 @@ This is the frontend part of the Event Management Platform built using **React.j
 ## Installation
 
 1. **Clone the repository**:
-
+```
    git clone https://github.com/PeerMohammad07/Eventify-Frontend.git
-   
-   cd event-management-platform/frontend
-
+```
+```
+   cd Eventify-Frontend
+```
 2. **Install dependencies**:
 
     npm install
