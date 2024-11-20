@@ -29,7 +29,7 @@ This is the frontend part of the Event Management Platform built using **React.j
 
 1. **Clone the repository**:
 
-   git clone https://github.com/yourusername/event-management-platform.git
+   git clone https://github.com/PeerMohammad07/Eventify-Frontend.git
    
    cd event-management-platform/frontend
 
